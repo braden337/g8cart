@@ -5,20 +5,21 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "parcel-images": "parcel watch src/images/* -d dist/images",
-    "parcel-serve": "parcel src/index.html",
-    "build": "npm run clean && parcel build src/index.html src/images/*",
-    "start": "npm run clean && concurrently -k -n w: npm:parcel-*",
-    "deploy": "npm run build; surge -d https://gXcart.surge.sh dist",
+    "build": "npm run clean && parcel build src/index.html",
+    "start": "npm run clean && parcel src/index.html",
+    "deploy": "npm run build && surge -d https://gXcart.surge.sh dist",
     "destroy": "surge teardown https://gXcart.surge.sh"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": false
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.3.0",
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-imagemin": "^4.0.2",
+    "parcel-plugin-static-files-copy": "^2.5.0",
     "rimraf": "^3.0.2",
     "surge": "^0.21.7"
   }
