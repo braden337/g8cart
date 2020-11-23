@@ -7,10 +7,10 @@
     "clean": "rimraf dist",
     "parcel-images": "parcel watch src/images/* -d dist/images",
     "parcel-serve": "parcel src/index.html",
-    "build": "npm run clean; parcel build src/index.html src/images/*",
-    "start": "npm run clean; concurrently -k -n w: npm:parcel-*",
-    "deploy": "npm run build; surge -d https://g8cart.surge.sh dist",
-    "destroy": "surge teardown https://g8cart.surge.sh"
+    "build": "npm run clean && parcel build src/index.html src/images/*",
+    "start": "npm run clean && concurrently -k -n w: npm:parcel-*",
+    "deploy": "npm run build; surge -d https://gXcart.surge.sh dist",
+    "destroy": "surge teardown https://gXcart.surge.sh"
   },
   "keywords": [],
   "author": "",
